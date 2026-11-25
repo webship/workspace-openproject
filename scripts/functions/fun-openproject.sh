@@ -176,6 +176,10 @@ ENVEOF
 # The image's own entrypoint starts its all-in-one setup as root; the stack starts OpenProject its own way instead
 # (start.sh, then openproject/openproject-serve.sh, as the host user).
 ENTRYPOINT []
+# What OpenProject writes while it runs (its cache and process files, its log, its files) belongs to the host user,
+# www-data with the host's UID by now: the image's own user (app) has UID 1000, which the host's may not be.
+RUN mkdir -p /app/tmp/pids /app/tmp/cache /var/openproject/assets/files \
+  && chown -R www-data:www-data /app/tmp /app/log /app/files /var/openproject
 DOCKEREOF
   ) || return 1 ;
   ( cd "${project_path}" && rt_serve 8080 "bash ${OPENPROJECT_FILES}/openproject-serve.sh" ) || return 1 ;

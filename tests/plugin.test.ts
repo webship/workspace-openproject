@@ -71,6 +71,7 @@ test('the runtimes: DDEV and Docker Compose; another is refused before anything 
   assert.match(write, /rt_claim openproject/, 'the plugin claims the project on another runtime');
   assert.match(write, /rt_stack image "openproject\/openproject:\$\{version\}"/, 'the publisher\'s image, pinned, is the web container\'s');
   assert.match(write, /ENTRYPOINT \[\]/, 'the image\'s own all-in-one start is not used there');
+  assert.match(write, /chown -R www-data:www-data \/app\/tmp \/app\/log \/app\/files \/var\/openproject/, 'what it writes belongs to the host user, whatever its UID');
   assert.match(write, /rt_serve 8080 "bash \$\{OPENPROJECT_FILES\}\/openproject-serve\.sh"/);
   assert.match(write, /umask 077/, 'the site\'s own values are readable by their owner only');
   const serve = read('scripts/openproject-serve.sh');
