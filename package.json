@@ -1,0 +1,120 @@
+{
+  "name": "@webship.co/workspace-openproject",
+  "version": "1.0.0",
+  "description": "OpenProject for Webship Workspace: the builder (`cmd-openproject-project.sh`, a site of the open-source project management software from the publisher's image on the project's own PostgreSQL, in containers: DDEV by default, Docker Compose too, with the default accounts as members of a sample project and its work packages and sprint) and its tool in every sites folder, the OpenProject step pack wired into the testing setup, the work packages of an OpenProject as work items of the tracker family (list, read, analyze, and do the work with the workspace's AI CLI on a branch; comments, time, moves and assignees after a person's click, writes off by default), and its AI items in their folders.",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "license": "ISC",
+  "engines": {
+    "node": ">=24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webship/workspace-openproject.git"
+  },
+  "files": [
+    "dist/src",
+    "ai",
+    "commands",
+    "config",
+    "features",
+    "scripts",
+    "testing",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "workspacePlugin": {
+    "name": "openproject",
+    "label": "OpenProject",
+    "summary": "A builder for OpenProject sites (the publisher's image, default accounts, a sample project and sprint), and its work packages as work items",
+    "needs": [
+      [
+        "dev",
+        "test",
+        "sandboxes",
+        "demos"
+      ],
+      "ai-agents",
+      "ai-skills",
+      "ai-commands",
+      "ai-prompts"
+    ],
+    "typeActions": {
+      "openproject": [
+        "sites",
+        "code"
+      ]
+    },
+    "settingsFile": "plugin.openproject.settings.yml",
+    "settingsTemplate": "config/plugin.openproject.settings.yml",
+    "labels": "config/settings.labels.yml",
+    "commands": {
+      "types": [
+        "sites"
+      ],
+      "workspaces": [
+        "dev",
+        "test",
+        "sandboxes",
+        "demos"
+      ],
+      "files": [
+        "commands/cmd-openproject-project.sh",
+        "commands/cmd-tools-openproject-cli.sh"
+      ]
+    },
+    "scripts": {
+      "functions": [
+        "scripts/functions/fun-openproject.sh"
+      ],
+      "args": [
+        "scripts/args/arg-openproject.sh",
+        "scripts/args/arg-openproject-cli.sh"
+      ],
+      "machine": [
+        "scripts/docker-compose.openproject.yaml",
+        "scripts/openproject-site.rb",
+        "scripts/openproject-serve.sh",
+        "testing/site.feature"
+      ]
+    },
+    "ai": {
+      "agents": [
+        "ai/agents/openproject-site-builder.md",
+        "ai/agents/openproject-tester.md",
+        "ai/agents/openproject-work-package-worker.md"
+      ],
+      "skills": [
+        "ai/skills/openproject-scenarios"
+      ],
+      "commands": [
+        "ai/commands/openproject-test.md"
+      ],
+      "prompts": [
+        "ai/prompts/openproject-build-and-test.md",
+        "ai/prompts/openproject-work-package-to-branch.md"
+      ]
+    },
+    "features": [
+      "features/openproject.feature",
+      "features/openproject-runtimes.feature"
+    ],
+    "featuresSite": "cmd-openproject-project.sh ci-openproject --install --add-users --sample-content --runtime docker"
+  },
+  "dependencies": {
+    "@webship.co/workspace-tracker": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@webship.co/workspace-plugin-api": "^1.0.11",
+    "typescript": "^5.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

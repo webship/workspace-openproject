@@ -1,0 +1,111 @@
+{
+ "_type": "Collection",
+ "total": 3,
+ "count": 3,
+ "pageSize": 1000,
+ "offset": 1,
+ "_embedded": {
+  "elements": [
+   {
+    "_type": "Membership",
+    "id": 5,
+    "createdAt": "2026-11-25T08:03:55.283Z",
+    "updatedAt": "2026-11-25T08:03:55.284Z",
+    "_links": {
+     "self": {
+      "href": "/api/v3/memberships/5",
+      "title": "Reader Test"
+     },
+     "schema": {
+      "href": "/api/v3/memberships/schema"
+     },
+     "project": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     },
+     "principal": {
+      "href": "/api/v3/users/8",
+      "title": "Reader Test"
+     },
+     "roles": [
+      {
+       "href": "/api/v3/roles/4",
+       "title": "Reader"
+      }
+     ]
+    }
+   },
+   {
+    "_type": "Membership",
+    "id": 4,
+    "createdAt": "2026-11-25T08:03:55.084Z",
+    "updatedAt": "2026-11-25T08:03:55.086Z",
+    "_links": {
+     "self": {
+      "href": "/api/v3/memberships/4",
+      "title": "Member Test"
+     },
+     "schema": {
+      "href": "/api/v3/memberships/schema"
+     },
+     "project": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     },
+     "principal": {
+      "href": "/api/v3/users/7",
+      "title": "Member Test"
+     },
+     "roles": [
+      {
+       "href": "/api/v3/roles/3",
+       "title": "Member"
+      }
+     ]
+    }
+   },
+   {
+    "_type": "Membership",
+    "id": 3,
+    "createdAt": "2026-11-25T08:03:54.859Z",
+    "updatedAt": "2026-11-25T08:03:54.864Z",
+    "_links": {
+     "self": {
+      "href": "/api/v3/memberships/3",
+      "title": "Owner Test"
+     },
+     "schema": {
+      "href": "/api/v3/memberships/schema"
+     },
+     "project": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     },
+     "principal": {
+      "href": "/api/v3/users/6",
+      "title": "Owner Test"
+     },
+     "roles": [
+      {
+       "href": "/api/v3/roles/5",
+       "title": "Project admin"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D&offset=1&pageSize=1000"
+  },
+  "jumpTo": {
+   "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D&offset=%7Boffset%7D&pageSize=1000",
+   "templated": true
+  },
+  "changeSize": {
+   "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D&offset=1&pageSize=%7Bsize%7D",
+   "templated": true
+  }
+ }
+}
