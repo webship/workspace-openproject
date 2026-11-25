@@ -1,0 +1,63 @@
+{
+ "_type": "Collection",
+ "total": 2,
+ "count": 2,
+ "_embedded": {
+  "elements": [
+   {
+    "_type": "User",
+    "id": 7,
+    "name": "Member Test",
+    "createdAt": "2026-11-25T08:03:54.873Z",
+    "updatedAt": "2026-11-25T08:03:54.873Z",
+    "login": "member",
+    "firstName": "Member",
+    "lastName": "Test",
+    "email": "member@example.com",
+    "avatar": "https://secure.gravatar.com/avatar/a4fae232e2bfebd9f4dc8d7cb6caecb2?default=404&secure=true",
+    "status": "active",
+    "identityUrl": null,
+    "language": "en",
+    "_links": {
+     "self": {
+      "href": "/api/v3/users/7",
+      "title": "Member Test"
+     },
+     "memberships": {
+      "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%227%22%5D%7D%7D%5D",
+      "title": "Memberships"
+     },
+     "showUser": {
+      "href": "/users/7",
+      "type": "text/html"
+     }
+    }
+   },
+   {
+    "_type": "User",
+    "id": 6,
+    "name": "Owner Test",
+    "avatar": "https://secure.gravatar.com/avatar/4cb1f144288e5d61695b0d3f9c63835c?default=404&secure=true",
+    "_links": {
+     "self": {
+      "href": "/api/v3/users/6",
+      "title": "Owner Test"
+     },
+     "memberships": {
+      "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%226%22%5D%7D%7D%5D",
+      "title": "Memberships"
+     },
+     "showUser": {
+      "href": "/users/6",
+      "type": "text/html"
+     }
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "/api/v3/principals?filters=%5B%5D"
+  }
+ }
+}

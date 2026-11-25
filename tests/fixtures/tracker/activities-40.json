@@ -1,0 +1,96 @@
+{
+ "_type": "Collection",
+ "total": 1,
+ "count": 1,
+ "_embedded": {
+  "elements": [
+   {
+    "details": [
+     {
+      "format": "custom",
+      "raw": "Type set to Task",
+      "html": "<strong>Type</strong> set to <i>Task</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Project set to Webship site",
+      "html": "<strong>Project</strong> set to <i>Webship site</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Subject set to A work package opened by someone outside the project",
+      "html": "<strong>Subject</strong> set to <i>A work package opened by someone outside the project</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Description set (/journals/62/diff/description)",
+      "html": "<strong>Description</strong> set (<a target=\"_top\" class=\"diff-details\" href=\"/journals/62/diff/description?activity_page=work_packages%2F40\">Details</a>)"
+     },
+     {
+      "format": "custom",
+      "raw": "Status set to New",
+      "html": "<strong>Status</strong> set to <i>New</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Priority set to Normal",
+      "html": "<strong>Priority</strong> set to <i>Normal</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Author set to Owner Test",
+      "html": "<strong>Author</strong> set to <i>Owner Test</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Scheduling mode set to Manual",
+      "html": "<strong>Scheduling mode</strong> set to Manual"
+     },
+     {
+      "format": "custom",
+      "raw": "Working days set to working days only",
+      "html": "<strong>Working days</strong> set to <i>working days only</i>"
+     }
+    ],
+    "_type": "Activity",
+    "id": 62,
+    "comment": {
+     "format": "markdown",
+     "raw": "",
+     "html": ""
+    },
+    "version": 1,
+    "internal": false,
+    "createdAt": "2026-11-25T08:04:11.932Z",
+    "updatedAt": "2026-11-25T08:04:11.932Z",
+    "_links": {
+     "attachments": {
+      "href": "/api/v3/activities/62/attachments"
+     },
+     "addAttachment": {
+      "href": "/api/v3/activities/62/attachments",
+      "method": "post"
+     },
+     "self": {
+      "href": "/api/v3/activities/62"
+     },
+     "workPackage": {
+      "href": "/api/v3/work_packages/40",
+      "title": "A work package opened by someone outside the project"
+     },
+     "user": {
+      "href": "/api/v3/users/9"
+     },
+     "emojiReactions": {
+      "href": "/api/v3/activities/62/emoji_reactions"
+     }
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "/api/v3/work_packages/40/activities"
+  }
+ }
+}

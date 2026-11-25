@@ -1,0 +1,106 @@
+{
+ "_type": "Collection",
+ "total": 1,
+ "count": 1,
+ "_embedded": {
+  "elements": [
+   {
+    "details": [
+     {
+      "format": "custom",
+      "raw": "Type set to Task",
+      "html": "<strong>Type</strong> set to <i>Task</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Project set to Webship site",
+      "html": "<strong>Project</strong> set to <i>Webship site</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Subject set to The greeting script says Helo instead of Hello",
+      "html": "<strong>Subject</strong> set to <i>The greeting script says Helo instead of Hello</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Description set (/journals/60/diff/description)",
+      "html": "<strong>Description</strong> set (<a target=\"_top\" class=\"diff-details\" href=\"/journals/60/diff/description?activity_page=work_packages%2F38\">Details</a>)"
+     },
+     {
+      "format": "custom",
+      "raw": "Status set to In progress",
+      "html": "<strong>Status</strong> set to <i>In progress</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Assignee set to Member Test",
+      "html": "<strong>Assignee</strong> set to <i>Member Test</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Priority set to Normal",
+      "html": "<strong>Priority</strong> set to <i>Normal</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Author set to Owner Test",
+      "html": "<strong>Author</strong> set to <i>Owner Test</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Scheduling mode set to Manual",
+      "html": "<strong>Scheduling mode</strong> set to Manual"
+     },
+     {
+      "format": "custom",
+      "raw": "Working days set to working days only",
+      "html": "<strong>Working days</strong> set to <i>working days only</i>"
+     },
+     {
+      "format": "custom",
+      "raw": "Sprint set to Sprint 1",
+      "html": "<strong>Sprint</strong> set to <i>Sprint 1</i>"
+     }
+    ],
+    "_type": "Activity::Comment",
+    "id": 60,
+    "comment": {
+     "format": "markdown",
+     "raw": "The script is in the project's repository: `greeting.sh`.",
+     "html": "<p class=\"op-uc-p\">The script is in the project's repository: <code class=\"op-uc-code\">greeting.sh</code>.</p>"
+    },
+    "version": 1,
+    "internal": false,
+    "createdAt": "2026-11-25T08:04:11.423Z",
+    "updatedAt": "2026-11-25T08:04:11.745Z",
+    "_links": {
+     "attachments": {
+      "href": "/api/v3/activities/60/attachments"
+     },
+     "addAttachment": {
+      "href": "/api/v3/activities/60/attachments",
+      "method": "post"
+     },
+     "self": {
+      "href": "/api/v3/activities/60"
+     },
+     "workPackage": {
+      "href": "/api/v3/work_packages/38",
+      "title": "The greeting script says Helo instead of Hello"
+     },
+     "user": {
+      "href": "/api/v3/users/6"
+     },
+     "emojiReactions": {
+      "href": "/api/v3/activities/60/emoji_reactions"
+     }
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "/api/v3/work_packages/38/activities"
+  }
+ }
+}

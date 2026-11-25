@@ -1,0 +1,1544 @@
+{
+ "_type": "WorkPackageCollection",
+ "total": 3,
+ "count": 3,
+ "pageSize": 30,
+ "offset": 1,
+ "_embedded": {
+  "elements": [
+   {
+    "derivedStartDate": null,
+    "derivedDueDate": null,
+    "spentTime": "PT0S",
+    "hasProjectAttributes": false,
+    "_type": "WorkPackage",
+    "id": 40,
+    "displayId": "40",
+    "lockVersion": 0,
+    "subject": "A work package opened by someone outside the project",
+    "description": {
+     "format": "markdown",
+     "raw": "Please also print the date after the greeting.\n",
+     "html": "<p class=\"op-uc-p\">Please also print the date after the greeting.</p>"
+    },
+    "scheduleManually": true,
+    "startDate": null,
+    "dueDate": null,
+    "estimatedTime": null,
+    "derivedEstimatedTime": null,
+    "derivedRemainingTime": null,
+    "duration": null,
+    "ignoreNonWorkingDays": false,
+    "percentageDone": null,
+    "derivedPercentageDone": null,
+    "createdAt": "2026-11-25T08:04:11.932Z",
+    "updatedAt": "2026-11-25T08:04:11.932Z",
+    "position": 2,
+    "storyPoints": null,
+    "_links": {
+     "attachments": {
+      "href": "/api/v3/work_packages/40/attachments"
+     },
+     "addAttachment": {
+      "href": "/api/v3/work_packages/40/attachments",
+      "method": "post"
+     },
+     "update": {
+      "href": "/api/v3/work_packages/40/form",
+      "method": "post"
+     },
+     "schema": {
+      "href": "/api/v3/work_packages/schemas/3-1"
+     },
+     "updateImmediately": {
+      "href": "/api/v3/work_packages/40",
+      "method": "patch"
+     },
+     "logTime": {
+      "href": "/api/v3/time_entries",
+      "title": "Log time on work package 'A work package opened by someone outside the project'"
+     },
+     "move": {
+      "href": "/work_packages/40/move/new",
+      "type": "text/html",
+      "title": "Move work package 'A work package opened by someone outside the project'"
+     },
+     "copy": {
+      "href": "/work_packages/40/copy",
+      "type": "text/html",
+      "title": "Copy work package 'A work package opened by someone outside the project'"
+     },
+     "pdf": {
+      "href": "/work_packages/40.pdf",
+      "type": "application/pdf",
+      "title": "Export as PDF"
+     },
+     "generate_pdf": {
+      "href": "/work_packages/40/generate_pdf_dialog",
+      "type": "text/vnd.turbo-stream.html",
+      "title": "Generate PDF"
+     },
+     "atom": {
+      "href": "/work_packages/40.atom",
+      "type": "application/rss+xml",
+      "title": "Atom feed"
+     },
+     "availableRelationCandidates": {
+      "href": "/api/v3/work_packages/40/available_relation_candidates",
+      "title": "Potential work packages to relate to"
+     },
+     "activities": {
+      "href": "/api/v3/work_packages/40/activities"
+     },
+     "availableWatchers": {
+      "href": "/api/v3/work_packages/40/available_watchers"
+     },
+     "relations": {
+      "href": "/api/v3/work_packages/40/relations"
+     },
+     "watchers": {
+      "href": "/api/v3/work_packages/40/watchers"
+     },
+     "addWatcher": {
+      "href": "/api/v3/work_packages/40/watchers",
+      "method": "post",
+      "payload": {
+       "user": {
+        "href": "/api/v3/users/{user_id}"
+       }
+      },
+      "templated": true
+     },
+     "removeWatcher": {
+      "href": "/api/v3/work_packages/40/watchers/{user_id}",
+      "method": "delete",
+      "templated": true
+     },
+     "addRelation": {
+      "href": "/api/v3/work_packages/40/relations",
+      "method": "post",
+      "title": "Add relation"
+     },
+     "addChild": {
+      "href": "/api/v3/workspaces/webship-site/work_packages",
+      "method": "post",
+      "title": "Add child of A work package opened by someone outside the project"
+     },
+     "changeParent": {
+      "href": "/api/v3/work_packages/40",
+      "method": "patch",
+      "title": "Change parent of A work package opened by someone outside the project"
+     },
+     "addComment": {
+      "href": "/api/v3/work_packages/40/activities",
+      "method": "post",
+      "title": "Add comment"
+     },
+     "previewMarkup": {
+      "href": "/api/v3/render/markdown?context=/api/v3/work_packages/40",
+      "method": "post"
+     },
+     "timeEntries": {
+      "href": "/api/v3/time_entries?filters=%5B%7B%22entity_type%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22WorkPackage%22%5D%7D%7D%2C%7B%22entity_id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2240%22%5D%7D%7D%5D",
+      "title": "Time entries"
+     },
+     "category": {
+      "href": null
+     },
+     "type": {
+      "href": "/api/v3/types/1",
+      "title": "Task"
+     },
+     "priority": {
+      "href": "/api/v3/priorities/8",
+      "title": "Normal"
+     },
+     "projectPhaseDefinition": {
+      "href": null
+     },
+     "status": {
+      "href": "/api/v3/statuses/1",
+      "title": "New"
+     },
+     "author": {
+      "href": "/api/v3/users/9",
+      "title": "Stranger Test"
+     },
+     "responsible": {
+      "href": null
+     },
+     "assignee": {
+      "href": null
+     },
+     "targetVersions": [],
+     "observedInVersions": [],
+     "showCosts": {
+      "href": "/projects/3/cost_reports?fields%5B%5D=WorkPackageId&operators%5BWorkPackageId%5D=%3D&set_filter=1&values%5BWorkPackageId%5D=40",
+      "type": "text/html",
+      "title": "Show cost entries"
+     },
+     "sprint": {
+      "href": null
+     },
+     "backlogBucket": {
+      "href": null
+     },
+     "github_pull_requests": {
+      "href": "/api/v3/work_packages/40/github_pull_requests",
+      "title": "GitHub pull requests"
+     },
+     "gitlab_merge_requests": {
+      "href": "/api/v3/work_packages/40/gitlab_merge_requests",
+      "title": "Gitlab merge requests"
+     },
+     "gitlab_issues": {
+      "href": "/api/v3/work_packages/40/gitlab_issues",
+      "title": "Gitlab Issues"
+     },
+     "meetings": {
+      "href": "/work_packages/40/tabs/meetings",
+      "title": "meetings"
+     },
+     "fileLinks": {
+      "href": "/api/v3/work_packages/40/file_links"
+     },
+     "addFileLink": {
+      "href": "/api/v3/work_packages/40/file_links",
+      "method": "post"
+     },
+     "self": {
+      "href": "/api/v3/work_packages/40",
+      "title": "A work package opened by someone outside the project"
+     },
+     "watch": {
+      "href": "/api/v3/work_packages/40/watchers",
+      "method": "post",
+      "payload": {
+       "user": {
+        "href": "/api/v3/users/7"
+       }
+      }
+     },
+     "ancestors": [],
+     "project": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     },
+     "parent": {
+      "href": null
+     },
+     "budget": {
+      "href": null
+     },
+     "customActions": []
+    }
+   },
+   {
+    "derivedStartDate": null,
+    "derivedDueDate": null,
+    "spentTime": "PT0S",
+    "hasProjectAttributes": false,
+    "_type": "WorkPackage",
+    "id": 39,
+    "displayId": "39",
+    "lockVersion": 0,
+    "subject": "The usage page spells greeting as greting",
+    "description": {
+     "format": "markdown",
+     "raw": "### Problem/Motivation\n\nThe usage line of `greeting.sh` says \"greting\".\n\n### Proposed resolution\n\nSpell it \"greeting\".\n",
+     "html": "<h3 id=\"op-frag-problemmotivation\" class=\"op-uc-h3\">\n<a href=\"#op-frag-problemmotivation\" aria-hidden=\"true\" rel=\"noopener noreferrer nofollow\" class=\"op-uc-link_permalink icon-link op-uc-link\"></a>Problem/Motivation</h3>\n<p class=\"op-uc-p\">The usage line of <code class=\"op-uc-code\">greeting.sh</code> says \"greting\".</p>\n<h3 id=\"op-frag-proposed-resolution\" class=\"op-uc-h3\">\n<a href=\"#op-frag-proposed-resolution\" aria-hidden=\"true\" rel=\"noopener noreferrer nofollow\" class=\"op-uc-link_permalink icon-link op-uc-link\"></a>Proposed resolution</h3>\n<p class=\"op-uc-p\">Spell it \"greeting\".</p>"
+    },
+    "scheduleManually": true,
+    "startDate": null,
+    "dueDate": null,
+    "estimatedTime": null,
+    "derivedEstimatedTime": null,
+    "derivedRemainingTime": null,
+    "duration": null,
+    "ignoreNonWorkingDays": false,
+    "percentageDone": null,
+    "derivedPercentageDone": null,
+    "createdAt": "2026-11-25T08:04:11.846Z",
+    "updatedAt": "2026-11-25T08:04:11.846Z",
+    "position": 1,
+    "storyPoints": null,
+    "_links": {
+     "attachments": {
+      "href": "/api/v3/work_packages/39/attachments"
+     },
+     "addAttachment": {
+      "href": "/api/v3/work_packages/39/attachments",
+      "method": "post"
+     },
+     "update": {
+      "href": "/api/v3/work_packages/39/form",
+      "method": "post"
+     },
+     "schema": {
+      "href": "/api/v3/work_packages/schemas/3-7"
+     },
+     "updateImmediately": {
+      "href": "/api/v3/work_packages/39",
+      "method": "patch"
+     },
+     "logTime": {
+      "href": "/api/v3/time_entries",
+      "title": "Log time on work package 'The usage page spells greeting as greting'"
+     },
+     "move": {
+      "href": "/work_packages/39/move/new",
+      "type": "text/html",
+      "title": "Move work package 'The usage page spells greeting as greting'"
+     },
+     "copy": {
+      "href": "/work_packages/39/copy",
+      "type": "text/html",
+      "title": "Copy work package 'The usage page spells greeting as greting'"
+     },
+     "pdf": {
+      "href": "/work_packages/39.pdf",
+      "type": "application/pdf",
+      "title": "Export as PDF"
+     },
+     "generate_pdf": {
+      "href": "/work_packages/39/generate_pdf_dialog",
+      "type": "text/vnd.turbo-stream.html",
+      "title": "Generate PDF"
+     },
+     "atom": {
+      "href": "/work_packages/39.atom",
+      "type": "application/rss+xml",
+      "title": "Atom feed"
+     },
+     "availableRelationCandidates": {
+      "href": "/api/v3/work_packages/39/available_relation_candidates",
+      "title": "Potential work packages to relate to"
+     },
+     "activities": {
+      "href": "/api/v3/work_packages/39/activities"
+     },
+     "availableWatchers": {
+      "href": "/api/v3/work_packages/39/available_watchers"
+     },
+     "relations": {
+      "href": "/api/v3/work_packages/39/relations"
+     },
+     "watchers": {
+      "href": "/api/v3/work_packages/39/watchers"
+     },
+     "addWatcher": {
+      "href": "/api/v3/work_packages/39/watchers",
+      "method": "post",
+      "payload": {
+       "user": {
+        "href": "/api/v3/users/{user_id}"
+       }
+      },
+      "templated": true
+     },
+     "removeWatcher": {
+      "href": "/api/v3/work_packages/39/watchers/{user_id}",
+      "method": "delete",
+      "templated": true
+     },
+     "addRelation": {
+      "href": "/api/v3/work_packages/39/relations",
+      "method": "post",
+      "title": "Add relation"
+     },
+     "addChild": {
+      "href": "/api/v3/workspaces/webship-site/work_packages",
+      "method": "post",
+      "title": "Add child of The usage page spells greeting as greting"
+     },
+     "changeParent": {
+      "href": "/api/v3/work_packages/39",
+      "method": "patch",
+      "title": "Change parent of The usage page spells greeting as greting"
+     },
+     "addComment": {
+      "href": "/api/v3/work_packages/39/activities",
+      "method": "post",
+      "title": "Add comment"
+     },
+     "previewMarkup": {
+      "href": "/api/v3/render/markdown?context=/api/v3/work_packages/39",
+      "method": "post"
+     },
+     "timeEntries": {
+      "href": "/api/v3/time_entries?filters=%5B%7B%22entity_type%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22WorkPackage%22%5D%7D%7D%2C%7B%22entity_id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2239%22%5D%7D%7D%5D",
+      "title": "Time entries"
+     },
+     "category": {
+      "href": null
+     },
+     "type": {
+      "href": "/api/v3/types/7",
+      "title": "Bug"
+     },
+     "priority": {
+      "href": "/api/v3/priorities/8",
+      "title": "Normal"
+     },
+     "projectPhaseDefinition": {
+      "href": null
+     },
+     "status": {
+      "href": "/api/v3/statuses/1",
+      "title": "New"
+     },
+     "author": {
+      "href": "/api/v3/users/7",
+      "title": "Member Test"
+     },
+     "responsible": {
+      "href": null
+     },
+     "assignee": {
+      "href": null
+     },
+     "targetVersions": [],
+     "observedInVersions": [],
+     "showCosts": {
+      "href": "/projects/3/cost_reports?fields%5B%5D=WorkPackageId&operators%5BWorkPackageId%5D=%3D&set_filter=1&values%5BWorkPackageId%5D=39",
+      "type": "text/html",
+      "title": "Show cost entries"
+     },
+     "sprint": {
+      "href": null
+     },
+     "backlogBucket": {
+      "href": null
+     },
+     "github_pull_requests": {
+      "href": "/api/v3/work_packages/39/github_pull_requests",
+      "title": "GitHub pull requests"
+     },
+     "gitlab_merge_requests": {
+      "href": "/api/v3/work_packages/39/gitlab_merge_requests",
+      "title": "Gitlab merge requests"
+     },
+     "gitlab_issues": {
+      "href": "/api/v3/work_packages/39/gitlab_issues",
+      "title": "Gitlab Issues"
+     },
+     "meetings": {
+      "href": "/work_packages/39/tabs/meetings",
+      "title": "meetings"
+     },
+     "fileLinks": {
+      "href": "/api/v3/work_packages/39/file_links"
+     },
+     "addFileLink": {
+      "href": "/api/v3/work_packages/39/file_links",
+      "method": "post"
+     },
+     "self": {
+      "href": "/api/v3/work_packages/39",
+      "title": "The usage page spells greeting as greting"
+     },
+     "unwatch": {
+      "href": "/api/v3/work_packages/39/watchers/7",
+      "method": "delete"
+     },
+     "ancestors": [],
+     "project": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     },
+     "parent": {
+      "href": null
+     },
+     "budget": {
+      "href": null
+     },
+     "customActions": []
+    }
+   },
+   {
+    "derivedStartDate": null,
+    "derivedDueDate": null,
+    "spentTime": "PT0S",
+    "hasProjectAttributes": false,
+    "_type": "WorkPackage",
+    "id": 38,
+    "displayId": "38",
+    "lockVersion": 1,
+    "subject": "The greeting script says Helo instead of Hello",
+    "description": {
+     "format": "markdown",
+     "raw": "### Problem/Motivation\n\n`bash greeting.sh World` prints `Helo, World!`.\n\n### Proposed resolution\n\nPrint `Hello, World!`, and keep the usage line as it is.\n",
+     "html": "<h3 id=\"op-frag-problemmotivation\" class=\"op-uc-h3\">\n<a href=\"#op-frag-problemmotivation\" aria-hidden=\"true\" rel=\"noopener noreferrer nofollow\" class=\"op-uc-link_permalink icon-link op-uc-link\"></a>Problem/Motivation</h3>\n<p class=\"op-uc-p\"><code class=\"op-uc-code\">bash greeting.sh World</code> prints <code class=\"op-uc-code\">Helo, World!</code>.</p>\n<h3 id=\"op-frag-proposed-resolution\" class=\"op-uc-h3\">\n<a href=\"#op-frag-proposed-resolution\" aria-hidden=\"true\" rel=\"noopener noreferrer nofollow\" class=\"op-uc-link_permalink icon-link op-uc-link\"></a>Proposed resolution</h3>\n<p class=\"op-uc-p\">Print <code class=\"op-uc-code\">Hello, World!</code>, and keep the usage line as it is.</p>"
+    },
+    "scheduleManually": true,
+    "startDate": null,
+    "dueDate": null,
+    "estimatedTime": null,
+    "derivedEstimatedTime": null,
+    "derivedRemainingTime": null,
+    "duration": null,
+    "ignoreNonWorkingDays": false,
+    "percentageDone": null,
+    "derivedPercentageDone": null,
+    "createdAt": "2026-11-25T08:04:11.423Z",
+    "updatedAt": "2026-11-25T08:04:11.745Z",
+    "position": 1,
+    "storyPoints": null,
+    "_links": {
+     "attachments": {
+      "href": "/api/v3/work_packages/38/attachments"
+     },
+     "addAttachment": {
+      "href": "/api/v3/work_packages/38/attachments",
+      "method": "post"
+     },
+     "update": {
+      "href": "/api/v3/work_packages/38/form",
+      "method": "post"
+     },
+     "schema": {
+      "href": "/api/v3/work_packages/schemas/3-1"
+     },
+     "updateImmediately": {
+      "href": "/api/v3/work_packages/38",
+      "method": "patch"
+     },
+     "logTime": {
+      "href": "/api/v3/time_entries",
+      "title": "Log time on work package 'The greeting script says Helo instead of Hello'"
+     },
+     "move": {
+      "href": "/work_packages/38/move/new",
+      "type": "text/html",
+      "title": "Move work package 'The greeting script says Helo instead of Hello'"
+     },
+     "copy": {
+      "href": "/work_packages/38/copy",
+      "type": "text/html",
+      "title": "Copy work package 'The greeting script says Helo instead of Hello'"
+     },
+     "pdf": {
+      "href": "/work_packages/38.pdf",
+      "type": "application/pdf",
+      "title": "Export as PDF"
+     },
+     "generate_pdf": {
+      "href": "/work_packages/38/generate_pdf_dialog",
+      "type": "text/vnd.turbo-stream.html",
+      "title": "Generate PDF"
+     },
+     "atom": {
+      "href": "/work_packages/38.atom",
+      "type": "application/rss+xml",
+      "title": "Atom feed"
+     },
+     "availableRelationCandidates": {
+      "href": "/api/v3/work_packages/38/available_relation_candidates",
+      "title": "Potential work packages to relate to"
+     },
+     "activities": {
+      "href": "/api/v3/work_packages/38/activities"
+     },
+     "availableWatchers": {
+      "href": "/api/v3/work_packages/38/available_watchers"
+     },
+     "relations": {
+      "href": "/api/v3/work_packages/38/relations"
+     },
+     "watchers": {
+      "href": "/api/v3/work_packages/38/watchers"
+     },
+     "addWatcher": {
+      "href": "/api/v3/work_packages/38/watchers",
+      "method": "post",
+      "payload": {
+       "user": {
+        "href": "/api/v3/users/{user_id}"
+       }
+      },
+      "templated": true
+     },
+     "removeWatcher": {
+      "href": "/api/v3/work_packages/38/watchers/{user_id}",
+      "method": "delete",
+      "templated": true
+     },
+     "addRelation": {
+      "href": "/api/v3/work_packages/38/relations",
+      "method": "post",
+      "title": "Add relation"
+     },
+     "addChild": {
+      "href": "/api/v3/workspaces/webship-site/work_packages",
+      "method": "post",
+      "title": "Add child of The greeting script says Helo instead of Hello"
+     },
+     "changeParent": {
+      "href": "/api/v3/work_packages/38",
+      "method": "patch",
+      "title": "Change parent of The greeting script says Helo instead of Hello"
+     },
+     "addComment": {
+      "href": "/api/v3/work_packages/38/activities",
+      "method": "post",
+      "title": "Add comment"
+     },
+     "previewMarkup": {
+      "href": "/api/v3/render/markdown?context=/api/v3/work_packages/38",
+      "method": "post"
+     },
+     "timeEntries": {
+      "href": "/api/v3/time_entries?filters=%5B%7B%22entity_type%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22WorkPackage%22%5D%7D%7D%2C%7B%22entity_id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2238%22%5D%7D%7D%5D",
+      "title": "Time entries"
+     },
+     "category": {
+      "href": null
+     },
+     "type": {
+      "href": "/api/v3/types/1",
+      "title": "Task"
+     },
+     "priority": {
+      "href": "/api/v3/priorities/8",
+      "title": "Normal"
+     },
+     "projectPhaseDefinition": {
+      "href": null
+     },
+     "status": {
+      "href": "/api/v3/statuses/7",
+      "title": "In progress"
+     },
+     "author": {
+      "href": "/api/v3/users/6",
+      "title": "Owner Test"
+     },
+     "responsible": {
+      "href": null
+     },
+     "assignee": {
+      "href": "/api/v3/users/7",
+      "title": "Member Test"
+     },
+     "targetVersions": [],
+     "observedInVersions": [],
+     "showCosts": {
+      "href": "/projects/3/cost_reports?fields%5B%5D=WorkPackageId&operators%5BWorkPackageId%5D=%3D&set_filter=1&values%5BWorkPackageId%5D=38",
+      "type": "text/html",
+      "title": "Show cost entries"
+     },
+     "sprint": {
+      "href": "/api/v3/sprints/1",
+      "title": "Sprint 1"
+     },
+     "backlogBucket": {
+      "href": null
+     },
+     "github_pull_requests": {
+      "href": "/api/v3/work_packages/38/github_pull_requests",
+      "title": "GitHub pull requests"
+     },
+     "gitlab_merge_requests": {
+      "href": "/api/v3/work_packages/38/gitlab_merge_requests",
+      "title": "Gitlab merge requests"
+     },
+     "gitlab_issues": {
+      "href": "/api/v3/work_packages/38/gitlab_issues",
+      "title": "Gitlab Issues"
+     },
+     "meetings": {
+      "href": "/work_packages/38/tabs/meetings",
+      "title": "meetings"
+     },
+     "fileLinks": {
+      "href": "/api/v3/work_packages/38/file_links"
+     },
+     "addFileLink": {
+      "href": "/api/v3/work_packages/38/file_links",
+      "method": "post"
+     },
+     "self": {
+      "href": "/api/v3/work_packages/38",
+      "title": "The greeting script says Helo instead of Hello"
+     },
+     "watch": {
+      "href": "/api/v3/work_packages/38/watchers",
+      "method": "post",
+      "payload": {
+       "user": {
+        "href": "/api/v3/users/7"
+       }
+      }
+     },
+     "ancestors": [],
+     "project": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     },
+     "parent": {
+      "href": null
+     },
+     "budget": {
+      "href": null
+     },
+     "customActions": []
+    }
+   }
+  ],
+  "schemas": {
+   "_type": "Collection",
+   "total": 2,
+   "count": 2,
+   "_embedded": {
+    "elements": [
+     {
+      "_attributeGroups": [
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "People",
+        "attributes": [
+         "assignee",
+         "responsible"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Estimates and progress",
+        "attributes": [
+         "estimatedTime",
+         "remainingTime",
+         "percentageDone",
+         "spentTime",
+         "storyPoints"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Details",
+        "attributes": [
+         "priority",
+         "sprint",
+         "backlogBucket",
+         "targetVersions",
+         "category",
+         "projectPhase",
+         "date"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Other",
+        "attributes": [
+         "position"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Costs",
+        "attributes": [
+         "laborCosts"
+        ]
+       }
+      ],
+      "_type": "Schema",
+      "_dependencies": [],
+      "lockVersion": {
+       "type": "Integer",
+       "name": "Lock version",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "id": {
+       "type": "Integer",
+       "name": "ID",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "subject": {
+       "type": "String",
+       "name": "Subject",
+       "required": true,
+       "hasDefault": false,
+       "writable": true,
+       "minLength": 1,
+       "maxLength": 255,
+       "options": {}
+      },
+      "description": {
+       "type": "Formattable",
+       "name": "Description",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "duration": {
+       "type": "Duration",
+       "name": "Duration",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "scheduleManually": {
+       "type": "Boolean",
+       "name": "Manual scheduling",
+       "required": false,
+       "hasDefault": true,
+       "writable": true,
+       "options": {}
+      },
+      "ignoreNonWorkingDays": {
+       "type": "Boolean",
+       "name": "Ignore non working days",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "startDate": {
+       "type": "Date",
+       "name": "Start date",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "dueDate": {
+       "type": "Date",
+       "name": "Finish date",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "derivedStartDate": {
+       "type": "Date",
+       "name": "Derived start date",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "derivedDueDate": {
+       "type": "Date",
+       "name": "Derived finish date",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "estimatedTime": {
+       "type": "Duration",
+       "name": "Work",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "derivedEstimatedTime": {
+       "type": "Duration",
+       "name": "Total work",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "remainingTime": {
+       "type": "Duration",
+       "name": "Remaining work",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "derivedRemainingTime": {
+       "type": "Duration",
+       "name": "Total remaining work",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "spentTime": {
+       "type": "Duration",
+       "name": "Spent time",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "percentageDone": {
+       "type": "Integer",
+       "name": "% Complete",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "derivedPercentageDone": {
+       "type": "Integer",
+       "name": "Total % complete",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "createdAt": {
+       "type": "DateTime",
+       "name": "Created on",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "updatedAt": {
+       "type": "DateTime",
+       "name": "Updated on",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "author": {
+       "type": "User",
+       "name": "Author",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {},
+       "location": "_links"
+      },
+      "project": {
+       "type": "Project",
+       "name": "Project",
+       "required": true,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "parent": {
+       "type": "WorkPackage",
+       "name": "Parent",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "assignee": {
+       "type": "User",
+       "name": "Assignee",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "People",
+       "location": "_links",
+       "_links": {}
+      },
+      "responsible": {
+       "type": "User",
+       "name": "Accountable",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "People",
+       "location": "_links",
+       "_links": {}
+      },
+      "type": {
+       "type": "Type",
+       "name": "Type",
+       "required": true,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "status": {
+       "type": "Status",
+       "name": "Status",
+       "required": true,
+       "hasDefault": true,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "category": {
+       "type": "Category",
+       "name": "Category",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "targetVersions": {
+       "type": "[]Version",
+       "name": "Target versions",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "options": {
+        "multiple": true
+       },
+       "location": "_links",
+       "_links": {}
+      },
+      "observedInVersions": {
+       "type": "[]Version",
+       "name": "Observed in versions",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "priority": {
+       "type": "Priority",
+       "name": "Priority",
+       "required": true,
+       "hasDefault": true,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "laborCosts": {
+       "type": "String",
+       "name": "Labor costs",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "attributeGroup": "Costs",
+       "options": {}
+      },
+      "position": {
+       "type": "Integer",
+       "name": "Position",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "attributeGroup": "Other",
+       "options": {}
+      },
+      "storyPoints": {
+       "type": "Integer",
+       "name": "Story Points",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "sprint": {
+       "type": "Sprint",
+       "name": "Sprint",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "backlogBucket": {
+       "type": "BacklogBucket",
+       "name": "Backlog bucket",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "_links": {
+       "self": {
+        "href": "/api/v3/work_packages/schemas/3-1"
+       },
+       "attachments": {
+        "href": null
+       }
+      }
+     },
+     {
+      "_attributeGroups": [
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "People",
+        "attributes": [
+         "assignee",
+         "responsible"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Estimates and progress",
+        "attributes": [
+         "estimatedTime",
+         "remainingTime",
+         "percentageDone",
+         "spentTime",
+         "storyPoints"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Details",
+        "attributes": [
+         "priority",
+         "sprint",
+         "backlogBucket",
+         "targetVersions",
+         "category",
+         "projectPhase",
+         "date",
+         "observedInVersions"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Other",
+        "attributes": [
+         "position"
+        ]
+       },
+       {
+        "_type": "WorkPackageFormAttributeGroup",
+        "name": "Costs",
+        "attributes": [
+         "laborCosts"
+        ]
+       }
+      ],
+      "_type": "Schema",
+      "_dependencies": [],
+      "lockVersion": {
+       "type": "Integer",
+       "name": "Lock version",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "id": {
+       "type": "Integer",
+       "name": "ID",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "subject": {
+       "type": "String",
+       "name": "Subject",
+       "required": true,
+       "hasDefault": false,
+       "writable": true,
+       "minLength": 1,
+       "maxLength": 255,
+       "options": {}
+      },
+      "description": {
+       "type": "Formattable",
+       "name": "Description",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "duration": {
+       "type": "Duration",
+       "name": "Duration",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "scheduleManually": {
+       "type": "Boolean",
+       "name": "Manual scheduling",
+       "required": false,
+       "hasDefault": true,
+       "writable": true,
+       "options": {}
+      },
+      "ignoreNonWorkingDays": {
+       "type": "Boolean",
+       "name": "Ignore non working days",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "startDate": {
+       "type": "Date",
+       "name": "Start date",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "dueDate": {
+       "type": "Date",
+       "name": "Finish date",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "options": {}
+      },
+      "derivedStartDate": {
+       "type": "Date",
+       "name": "Derived start date",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "derivedDueDate": {
+       "type": "Date",
+       "name": "Derived finish date",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "estimatedTime": {
+       "type": "Duration",
+       "name": "Work",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "derivedEstimatedTime": {
+       "type": "Duration",
+       "name": "Total work",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "remainingTime": {
+       "type": "Duration",
+       "name": "Remaining work",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "derivedRemainingTime": {
+       "type": "Duration",
+       "name": "Total remaining work",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "spentTime": {
+       "type": "Duration",
+       "name": "Spent time",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "percentageDone": {
+       "type": "Integer",
+       "name": "% Complete",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "derivedPercentageDone": {
+       "type": "Integer",
+       "name": "Total % complete",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "createdAt": {
+       "type": "DateTime",
+       "name": "Created on",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "updatedAt": {
+       "type": "DateTime",
+       "name": "Updated on",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {}
+      },
+      "author": {
+       "type": "User",
+       "name": "Author",
+       "required": true,
+       "hasDefault": false,
+       "writable": false,
+       "options": {},
+       "location": "_links"
+      },
+      "project": {
+       "type": "Project",
+       "name": "Project",
+       "required": true,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "parent": {
+       "type": "WorkPackage",
+       "name": "Parent",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "assignee": {
+       "type": "User",
+       "name": "Assignee",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "People",
+       "location": "_links",
+       "_links": {}
+      },
+      "responsible": {
+       "type": "User",
+       "name": "Accountable",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "People",
+       "location": "_links",
+       "_links": {}
+      },
+      "type": {
+       "type": "Type",
+       "name": "Type",
+       "required": true,
+       "hasDefault": false,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "status": {
+       "type": "Status",
+       "name": "Status",
+       "required": true,
+       "hasDefault": true,
+       "writable": true,
+       "location": "_links",
+       "_links": {}
+      },
+      "category": {
+       "type": "Category",
+       "name": "Category",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "targetVersions": {
+       "type": "[]Version",
+       "name": "Target versions",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "options": {
+        "multiple": true
+       },
+       "location": "_links",
+       "_links": {}
+      },
+      "observedInVersions": {
+       "type": "[]Version",
+       "name": "Observed in versions",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "priority": {
+       "type": "Priority",
+       "name": "Priority",
+       "required": true,
+       "hasDefault": true,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "laborCosts": {
+       "type": "String",
+       "name": "Labor costs",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "attributeGroup": "Costs",
+       "options": {}
+      },
+      "position": {
+       "type": "Integer",
+       "name": "Position",
+       "required": false,
+       "hasDefault": false,
+       "writable": false,
+       "attributeGroup": "Other",
+       "options": {}
+      },
+      "storyPoints": {
+       "type": "Integer",
+       "name": "Story Points",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Estimates and progress",
+       "options": {}
+      },
+      "sprint": {
+       "type": "Sprint",
+       "name": "Sprint",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "backlogBucket": {
+       "type": "BacklogBucket",
+       "name": "Backlog bucket",
+       "required": false,
+       "hasDefault": false,
+       "writable": true,
+       "attributeGroup": "Details",
+       "location": "_links",
+       "_links": {}
+      },
+      "_links": {
+       "self": {
+        "href": "/api/v3/work_packages/schemas/3-7"
+       },
+       "attachments": {
+        "href": null
+       }
+      }
+     }
+    ]
+   },
+   "_links": {
+    "self": {
+     "href": "/api/v3/work_packages/schemas?filters=%5B%7Bid%3A+%7Boperator%3A+%22%3D%22%2C+values%3A+%5B%223-1%22%2C+%223-7%22%5D%7D%7D%5D"
+    }
+   }
+  }
+ },
+ "_links": {
+  "self": {
+   "href": "/api/v3/workspaces/3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D"
+  },
+  "jumpTo": {
+   "href": "/api/v3/workspaces/3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=%7Boffset%7D&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D",
+   "templated": true
+  },
+  "changeSize": {
+   "href": "/api/v3/workspaces/3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=%7Bsize%7D&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D",
+   "templated": true
+  },
+  "editWorkPackage": {
+   "href": "/api/v3/work_packages/{work_package_id}/form",
+   "method": "post",
+   "templated": true
+  },
+  "createWorkPackage": {
+   "href": "/api/v3/work_packages/form",
+   "method": "post"
+  },
+  "createWorkPackageImmediate": {
+   "href": "/api/v3/work_packages",
+   "method": "post"
+  },
+  "schemas": {
+   "href": "/api/v3/work_packages/schemas?filters=%5B%7Bid%3A+%7Boperator%3A+%22%3D%22%2C+values%3A+%5B%223-1%22%2C+%223-7%22%5D%7D%7D%5D"
+  },
+  "representations": [
+   {
+    "href": "/projects/webship-site/work_packages.pdf?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D&pdf_export_type=table",
+    "identifier": "pdf",
+    "type": "application/pdf",
+    "title": "PDF Table"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.pdf?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D&pdf_export_type=report&show_images=true",
+    "identifier": "pdf-with-descriptions",
+    "type": "application/pdf",
+    "title": "PDF Report with images"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.pdf?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D&pdf_export_type=report",
+    "identifier": "pdf-descr",
+    "type": "application/pdf",
+    "title": "PDF Report"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.xls?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D",
+    "identifier": "xls",
+    "type": "application/vnd.ms-excel",
+    "title": "XLS"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.xls?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D&show_descriptions=true",
+    "identifier": "xls-with-descriptions",
+    "type": "application/vnd.ms-excel",
+    "title": "XLS with descriptions"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.xls?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D&show_relations=true",
+    "identifier": "xls-with-relations",
+    "type": "application/vnd.ms-excel",
+    "title": "XLS with relations"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.csv?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D",
+    "identifier": "csv",
+    "type": "text/csv",
+    "title": "CSV"
+   },
+   {
+    "href": "/projects/webship-site/work_packages.atom?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=30&showHierarchies=true&showSums=false&sortBy=%5B%5B%22updatedAt%22%2C%22desc%22%5D%5D",
+    "identifier": "atom",
+    "type": "application/atom+xml",
+    "title": "Atom"
+   }
+  ]
+ }
+}

@@ -1,0 +1,396 @@
+{
+ "derivedStartDate": null,
+ "derivedDueDate": null,
+ "spentTime": "PT0S",
+ "hasProjectAttributes": false,
+ "_embedded": {
+  "attachments": {
+   "_type": "Collection",
+   "total": 0,
+   "count": 0,
+   "_embedded": {
+    "elements": []
+   },
+   "_links": {
+    "self": {
+     "href": "/api/v3/work_packages/40/attachments"
+    }
+   }
+  },
+  "relations": {
+   "_type": "Collection",
+   "total": 0,
+   "count": 0,
+   "_embedded": {
+    "elements": []
+   },
+   "_links": {
+    "self": {
+     "href": "/api/v3/work_packages/40/relations"
+    }
+   }
+  },
+  "type": {
+   "_type": "Type",
+   "id": 1,
+   "name": "Task",
+   "color": "#1A67A3",
+   "position": 1,
+   "isDefault": true,
+   "isMilestone": false,
+   "createdAt": "2026-11-25T08:02:43.278Z",
+   "updatedAt": "2026-11-25T08:02:43.278Z",
+   "_links": {
+    "self": {
+     "href": "/api/v3/types/1",
+     "title": "Task"
+    }
+   }
+  },
+  "priority": {
+   "_type": "Priority",
+   "id": 8,
+   "name": "Normal",
+   "position": 2,
+   "color": "#74C0FC",
+   "isDefault": true,
+   "isActive": true,
+   "_links": {
+    "self": {
+     "href": "/api/v3/priorities/8",
+     "title": "Normal"
+    }
+   }
+  },
+  "project": {
+   "favorited": false,
+   "_type": "Project",
+   "id": 3,
+   "identifier": "webship-site",
+   "name": "Webship site",
+   "active": true,
+   "public": false,
+   "description": {
+    "format": "markdown",
+    "raw": "The sample project of a Webship Workspace site: its work packages, sprint and members are what the step pack and the tracker are tested on.",
+    "html": "<p class=\"op-uc-p\">The sample project of a Webship Workspace site: its work packages, sprint and members are what the step pack and the tracker are tested on.</p>"
+   },
+   "createdAt": "2026-11-25T08:03:54.212Z",
+   "updatedAt": "2026-11-25T08:03:54.212Z",
+   "statusExplanation": {
+    "format": "markdown",
+    "raw": "",
+    "html": ""
+   },
+   "_links": {
+    "self": {
+     "href": "/api/v3/projects/3",
+     "title": "Webship site"
+    },
+    "createWorkPackage": {
+     "href": "/api/v3/workspaces/3/work_packages/form",
+     "method": "post"
+    },
+    "createWorkPackageImmediately": {
+     "href": "/api/v3/workspaces/3/work_packages",
+     "method": "post"
+    },
+    "workPackages": {
+     "href": "/api/v3/workspaces/3/work_packages"
+    },
+    "storages": [],
+    "categories": {
+     "href": "/api/v3/workspaces/3/categories"
+    },
+    "versions": {
+     "href": "/api/v3/workspaces/3/versions"
+    },
+    "memberships": {
+     "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D"
+    },
+    "types": {
+     "href": "/api/v3/workspaces/3/types"
+    },
+    "favor": {
+     "method": "post",
+     "href": "/api/v3/workspaces/3/favorite"
+    },
+    "schema": {
+     "href": "/api/v3/workspaces/schema"
+    },
+    "status": {
+     "href": null
+    },
+    "ancestors": [],
+    "projectStorages": {
+     "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D"
+    },
+    "parent": {
+     "href": null
+    }
+   }
+  },
+  "status": {
+   "_type": "Status",
+   "id": 1,
+   "name": "New",
+   "isClosed": false,
+   "color": "#1098AD",
+   "isDefault": true,
+   "isReadonly": false,
+   "excludedFromTotals": false,
+   "defaultDoneRatio": 0,
+   "position": 1,
+   "_links": {
+    "self": {
+     "href": "/api/v3/statuses/1",
+     "title": "New"
+    }
+   }
+  },
+  "author": {
+   "_type": "User",
+   "id": 9,
+   "name": "Stranger Test",
+   "avatar": "https://secure.gravatar.com/avatar/4dc08209fdc002339e308cfba60ff191?default=404&secure=true",
+   "_links": {
+    "self": {
+     "href": "/api/v3/users/9",
+     "title": "Stranger Test"
+    },
+    "memberships": {
+     "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%229%22%5D%7D%7D%5D",
+     "title": "Memberships"
+    },
+    "showUser": {
+     "href": "/users/9",
+     "type": "text/html"
+    }
+   }
+  },
+  "targetVersions": [],
+  "observedInVersions": [],
+  "customActions": []
+ },
+ "_type": "WorkPackage",
+ "id": 40,
+ "displayId": "40",
+ "lockVersion": 0,
+ "subject": "A work package opened by someone outside the project",
+ "description": {
+  "format": "markdown",
+  "raw": "Please also print the date after the greeting.\n",
+  "html": "<p class=\"op-uc-p\">Please also print the date after the greeting.</p>"
+ },
+ "scheduleManually": true,
+ "startDate": null,
+ "dueDate": null,
+ "estimatedTime": null,
+ "derivedEstimatedTime": null,
+ "derivedRemainingTime": null,
+ "duration": null,
+ "ignoreNonWorkingDays": false,
+ "percentageDone": null,
+ "derivedPercentageDone": null,
+ "createdAt": "2026-11-25T08:04:11.932Z",
+ "updatedAt": "2026-11-25T08:04:11.932Z",
+ "position": 2,
+ "storyPoints": null,
+ "_links": {
+  "attachments": {
+   "href": "/api/v3/work_packages/40/attachments"
+  },
+  "addAttachment": {
+   "href": "/api/v3/work_packages/40/attachments",
+   "method": "post"
+  },
+  "update": {
+   "href": "/api/v3/work_packages/40/form",
+   "method": "post"
+  },
+  "schema": {
+   "href": "/api/v3/work_packages/schemas/3-1"
+  },
+  "updateImmediately": {
+   "href": "/api/v3/work_packages/40",
+   "method": "patch"
+  },
+  "logTime": {
+   "href": "/api/v3/time_entries",
+   "title": "Log time on work package 'A work package opened by someone outside the project'"
+  },
+  "move": {
+   "href": "/work_packages/40/move/new",
+   "type": "text/html",
+   "title": "Move work package 'A work package opened by someone outside the project'"
+  },
+  "copy": {
+   "href": "/work_packages/40/copy",
+   "type": "text/html",
+   "title": "Copy work package 'A work package opened by someone outside the project'"
+  },
+  "pdf": {
+   "href": "/work_packages/40.pdf",
+   "type": "application/pdf",
+   "title": "Export as PDF"
+  },
+  "generate_pdf": {
+   "href": "/work_packages/40/generate_pdf_dialog",
+   "type": "text/vnd.turbo-stream.html",
+   "title": "Generate PDF"
+  },
+  "atom": {
+   "href": "/work_packages/40.atom",
+   "type": "application/rss+xml",
+   "title": "Atom feed"
+  },
+  "availableRelationCandidates": {
+   "href": "/api/v3/work_packages/40/available_relation_candidates",
+   "title": "Potential work packages to relate to"
+  },
+  "activities": {
+   "href": "/api/v3/work_packages/40/activities"
+  },
+  "availableWatchers": {
+   "href": "/api/v3/work_packages/40/available_watchers"
+  },
+  "relations": {
+   "href": "/api/v3/work_packages/40/relations"
+  },
+  "watchers": {
+   "href": "/api/v3/work_packages/40/watchers"
+  },
+  "addWatcher": {
+   "href": "/api/v3/work_packages/40/watchers",
+   "method": "post",
+   "payload": {
+    "user": {
+     "href": "/api/v3/users/{user_id}"
+    }
+   },
+   "templated": true
+  },
+  "removeWatcher": {
+   "href": "/api/v3/work_packages/40/watchers/{user_id}",
+   "method": "delete",
+   "templated": true
+  },
+  "addRelation": {
+   "href": "/api/v3/work_packages/40/relations",
+   "method": "post",
+   "title": "Add relation"
+  },
+  "addChild": {
+   "href": "/api/v3/workspaces/webship-site/work_packages",
+   "method": "post",
+   "title": "Add child of A work package opened by someone outside the project"
+  },
+  "changeParent": {
+   "href": "/api/v3/work_packages/40",
+   "method": "patch",
+   "title": "Change parent of A work package opened by someone outside the project"
+  },
+  "addComment": {
+   "href": "/api/v3/work_packages/40/activities",
+   "method": "post",
+   "title": "Add comment"
+  },
+  "previewMarkup": {
+   "href": "/api/v3/render/markdown?context=/api/v3/work_packages/40",
+   "method": "post"
+  },
+  "timeEntries": {
+   "href": "/api/v3/time_entries?filters=%5B%7B%22entity_type%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22WorkPackage%22%5D%7D%7D%2C%7B%22entity_id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2240%22%5D%7D%7D%5D",
+   "title": "Time entries"
+  },
+  "category": {
+   "href": null
+  },
+  "type": {
+   "href": "/api/v3/types/1",
+   "title": "Task"
+  },
+  "priority": {
+   "href": "/api/v3/priorities/8",
+   "title": "Normal"
+  },
+  "projectPhaseDefinition": {
+   "href": null
+  },
+  "status": {
+   "href": "/api/v3/statuses/1",
+   "title": "New"
+  },
+  "author": {
+   "href": "/api/v3/users/9",
+   "title": "Stranger Test"
+  },
+  "responsible": {
+   "href": null
+  },
+  "assignee": {
+   "href": null
+  },
+  "targetVersions": [],
+  "observedInVersions": [],
+  "showCosts": {
+   "href": "/projects/3/cost_reports?fields%5B%5D=WorkPackageId&operators%5BWorkPackageId%5D=%3D&set_filter=1&values%5BWorkPackageId%5D=40",
+   "type": "text/html",
+   "title": "Show cost entries"
+  },
+  "sprint": {
+   "href": null
+  },
+  "backlogBucket": {
+   "href": null
+  },
+  "github_pull_requests": {
+   "href": "/api/v3/work_packages/40/github_pull_requests",
+   "title": "GitHub pull requests"
+  },
+  "gitlab_merge_requests": {
+   "href": "/api/v3/work_packages/40/gitlab_merge_requests",
+   "title": "Gitlab merge requests"
+  },
+  "gitlab_issues": {
+   "href": "/api/v3/work_packages/40/gitlab_issues",
+   "title": "Gitlab Issues"
+  },
+  "meetings": {
+   "href": "/work_packages/40/tabs/meetings",
+   "title": "meetings"
+  },
+  "fileLinks": {
+   "href": "/api/v3/work_packages/40/file_links"
+  },
+  "addFileLink": {
+   "href": "/api/v3/work_packages/40/file_links",
+   "method": "post"
+  },
+  "self": {
+   "href": "/api/v3/work_packages/40",
+   "title": "A work package opened by someone outside the project"
+  },
+  "watch": {
+   "href": "/api/v3/work_packages/40/watchers",
+   "method": "post",
+   "payload": {
+    "user": {
+     "href": "/api/v3/users/7"
+    }
+   }
+  },
+  "ancestors": [],
+  "project": {
+   "href": "/api/v3/projects/3",
+   "title": "Webship site"
+  },
+  "parent": {
+   "href": null
+  },
+  "budget": {
+   "href": null
+  },
+  "customActions": []
+ }
+}

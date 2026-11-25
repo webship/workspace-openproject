@@ -1,0 +1,49 @@
+{
+ "_type": "Collection",
+ "total": 1,
+ "count": 1,
+ "pageSize": 20,
+ "offset": 1,
+ "_embedded": {
+  "elements": [
+   {
+    "_type": "Sprint",
+    "id": 1,
+    "name": "Sprint 1",
+    "startDate": "2026-11-25",
+    "finishDate": "2026-12-06",
+    "startedAt": null,
+    "completedAt": null,
+    "createdAt": "2026-11-25T08:04:11.275Z",
+    "updatedAt": "2026-11-25T08:04:11.275Z",
+    "_links": {
+     "self": {
+      "href": "/api/v3/sprints/1",
+      "title": "Sprint 1"
+     },
+     "status": {
+      "href": "urn:openproject-org:api:v3:sprints:status:active",
+      "title": "Active"
+     },
+     "definingWorkspace": {
+      "href": "/api/v3/projects/3",
+      "title": "Webship site"
+     }
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "/api/v3/sprints?filters=%5B%7B%22definingWorkspace%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D&offset=1&pageSize=20"
+  },
+  "jumpTo": {
+   "href": "/api/v3/sprints?filters=%5B%7B%22definingWorkspace%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D&offset=%7Boffset%7D&pageSize=20",
+   "templated": true
+  },
+  "changeSize": {
+   "href": "/api/v3/sprints?filters=%5B%7B%22definingWorkspace%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D&offset=1&pageSize=%7Bsize%7D",
+   "templated": true
+  }
+ }
+}
