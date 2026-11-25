@@ -107,7 +107,7 @@
     "featuresSite": "cmd-openproject-project.sh ci-openproject --install --add-users --sample-content --runtime docker"
   },
   "dependencies": {
-    "@webship.co/workspace-tracker": "^1.0.1"
+    "@webship.co/workspace-tracker": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

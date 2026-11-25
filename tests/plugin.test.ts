@@ -31,7 +31,7 @@ test('the manifest names the platform, and every file it names ships', () => {
   const names = manifest.scripts.machine.map((f: string) => path.basename(f));
   assert.strictEqual(new Set(names).size, names.length, 'the machine files have names of their own');
   assert.strictEqual(manifest.featuresSite, 'cmd-openproject-project.sh ci-openproject --install --add-users --sample-content --runtime docker', 'CI builds a site on Docker Compose for the features');
-  assert.deepStrictEqual(pkg.dependencies, { '@webship.co/workspace-tracker': '^1.0.1' });
+  assert.deepStrictEqual(pkg.dependencies, { '@webship.co/workspace-tracker': '^1.0.2' });
 });
 
 test('every command finds the workspace by itself, names its folder, and sources its args from where the installer puts them', () => {
@@ -109,7 +109,7 @@ test('the functions carry the names the core\'s tools look for, and run OpenProj
 
 test('the provider names OpenProject\'s own token shapes, for the guard before anything is posted', () => {
   const api: any = { name: 'openproject', settings: { file: 'plugin.openproject.settings.yml', read: () => ({}) }, lib: {} };
-  const shapes = (openprojectTracker(api) as any).tokenShapes as Array<[string, RegExp]>;
+  const shapes = openprojectTracker(api).tokenShapes as Array<[string, RegExp]>;
   assert.strictEqual(shapes.length, 1);
   const [words, shape] = shapes[0];
   assert.strictEqual(words, 'an OpenProject token');

@@ -191,9 +191,8 @@ export function openprojectTracker(api: PluginApi): TrackerProvider {
     idPattern: /^[1-9][0-9]{0,9}$/,
     tokenVariables: ['OPENPROJECT_API_KEY', 'OPENPROJECT_TOKEN'],
     // OpenProject's own tokens: opapi- (an API token), opal- (a login cookie), opbk- (a backup), opical- (a calendar
-    // feed), each followed by 64 hex digits. The base refuses them in what is about to be posted (its tokenShapes,
-    // from @webship.co/workspace-tracker 1.0.2; an older base ignores the key and still refuses this site's own token).
-    ...({ tokenShapes: [['an OpenProject token', /\bop(?:api|al|bk|ical)-[0-9a-f]{32,}/]] } as Record<string, unknown>),
+    // feed), each followed by 64 hex digits. The base refuses them in what is about to be posted.
+    tokenShapes: [['an OpenProject token', /\bop(?:api|al|bk|ical)-[0-9a-f]{32,}/]],
     secret: () => token(),
     ready: () => (!base() ? `no OpenProject address in ${api.settings.file} (url)` : !token() ? `no API token in ${api.settings.file} (token)` : ''),
     // A workspace project has no OpenProject project of its own: it remembers one, or the default is used.
