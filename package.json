@@ -1,6 +1,6 @@
 {
   "name": "@webship.co/workspace-openproject",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "OpenProject for Webship Workspace: the builder (`cmd-openproject-project.sh`, a site of the open-source project management software from the publisher's image on the project's own PostgreSQL, in containers: DDEV by default, Docker Compose too, with the default accounts as members of a sample project and its work packages and sprint) and its tool in every sites folder, the OpenProject step pack wired into the testing setup, the work packages of an OpenProject as work items of the tracker family (list, read, analyze, and do the work with the workspace's AI CLI on a branch; comments, time, moves and assignees after a person's click, writes off by default), and its AI items in their folders.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
