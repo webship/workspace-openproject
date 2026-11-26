@@ -23,6 +23,9 @@ services:
       - ${DDEV_APPROOT}/openproject/env
     volumes:
       - openproject_assets:/var/openproject/assets
+      # The image declares this volume too; the site's database is the project's (DATABASE_URL), so it holds nothing
+      # of the site, but unnamed it would be left on the machine each time the container is made.
+      - openproject_pgdata:/var/openproject/pgdata
       # The plugin's scripts, which the builder and the tool run in this container.
       - ${DDEV_APPROOT}/openproject:/opt/webship:ro
     environment:
@@ -34,7 +37,10 @@ services:
       OPENPROJECT_HTTPS: "true"
       OPENPROJECT_SMTP__ADDRESS: web
       USE_JEMALLOC: "false"
-# Named after the project, so removing the project removes it with its database, and a new build starts empty.
+# Every volume the image declares, named after the project, so removing the project removes them with its database,
+# and a new build starts empty.
 volumes:
   openproject_assets:
     name: ddev-${DDEV_SITENAME}-openproject-assets
+  openproject_pgdata:
+    name: ddev-${DDEV_SITENAME}-openproject-pgdata
