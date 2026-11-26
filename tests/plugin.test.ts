@@ -88,6 +88,12 @@ test('OpenProject\'s service on DDEV: the publisher\'s image takes the project\'
   assert.match(compose, /OPENPROJECT_SMTP__ADDRESS: web/, 'the site\'s mail goes to the mail catcher of the web container');
   assert.match(compose, /env_file:\n\s+- \$\{DDEV_APPROOT\}\/openproject\/env/, 'the site\'s own values from its file');
   assert.match(compose, /name: ddev-\$\{DDEV_SITENAME\}-openproject-assets/, 'the files volume is the project\'s, removed with it');
+  // Every volume the image declares (its registry's config of 17.9.8: /var/openproject/assets, /var/openproject/pgdata)
+  // is mounted from a volume named after the project: an unnamed one is left on the machine by ddev delete (#3).
+  for (const [volume, folder] of [['openproject_assets', '/var/openproject/assets'], ['openproject_pgdata', '/var/openproject/pgdata']]) {
+    assert.ok(compose.includes(`      - ${volume}:${folder}\n`), `${folder} is mounted from ${volume}`);
+    assert.match(compose, new RegExp(`\\n  ${volume}:\\n    name: ddev-\\$\\{DDEV_SITENAME\\}-${volume.replace('_', '-')}\\n`), `${volume} is named after the project`);
+  }
   assert.doesNotMatch(compose, /SECRET_KEY_BASE:|PASSWORD:/, 'no secret in the compose file');
 });
 
