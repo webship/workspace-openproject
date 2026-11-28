@@ -118,6 +118,7 @@ test('OpenProject\'s service on DDEV: the publisher\'s image takes the project\'
   assert.doesNotMatch(compose, /SECRET_KEY_BASE:|PASSWORD:/, 'no secret in the compose file');
   // As the project's user, with the plugin's start: what it writes in the project folder is the project's own.
   assert.match(compose, /\n    user: "\$\{DDEV_UID\}:\$\{DDEV_GID\}"\n    command: \["bash", "\/opt\/webship\/openproject-serve\.sh"\]\n/, 'the project\'s user, the plugin\'s start (the all-in-one one needs root)');
+  assert.match(compose, /\n    depends_on:\n      db:\n        condition: service_healthy\n/, 'it waits for the project\'s database to be healthy: the plugin\'s start migrates at once');
   assert.match(compose, /\n    tmpfs:\n      - \/app\/tmp:mode=1777\n      - \/app\/log:mode=1777\n/, 'its caches and log where any user may write');
   assert.ok(compose.includes('      - ${DDEV_APPROOT}/openproject/files:/var/openproject/assets/files\n'), 'its attachments in the project folder');
   for (const line of ['OPENPROJECT_RAILS__CACHE__STORE: file_store', 'PORT: "80"', 'HOME: /tmp']) assert.ok(compose.includes(`      ${line}\n`), line);

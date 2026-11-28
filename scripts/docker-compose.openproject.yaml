@@ -24,8 +24,11 @@ services:
     restart: "no"
     expose:
       - "80"
+    # The plugin's start migrates the database at once, and on a new project the database is still being made when
+    # this container starts: OpenProject waits for it to be healthy.
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     env_file:
       - ${DDEV_APPROOT}/openproject/env
     # What OpenProject writes in the image's own folders (its caches and process files, its log), for any user.
