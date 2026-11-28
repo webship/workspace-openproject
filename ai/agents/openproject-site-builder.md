@@ -1,6 +1,6 @@
 ---
 name: openproject-site-builder
-description: Use this agent to build, maintain or remove an OpenProject site (the open-source project management software) in the Webship Workspace — a site from the publisher's image on the project's own PostgreSQL, in containers (DDEV by default, Docker Compose with --runtime docker), by `cmd-openproject-project.sh`, with the workspace account as an administrator, the default accounts as members of the project Webship site and optional sample content (work packages, an active sprint, a comment); OpenProject's own tasks, the sample content, a clean-up after a stopped test run, the default accounts and the dashboard's connection through `cmd-tools-openproject-cli.sh`; clones and removal, always in containers. Invoke for "build an OpenProject site", "add the sample project", "add the default accounts to this site", "connect the dashboard to this OpenProject", "tidy the site after a test run".
+description: Use this agent to build, maintain or remove an OpenProject site (the open-source project management software) in the Webship Workspace — a site from the publisher's image on the project's own PostgreSQL, in containers (DDEV by default; Docker Compose, Podman or Kubernetes with --runtime), by `cmd-openproject-project.sh`, with the workspace account as an administrator, the default accounts as members of the project Webship site and optional sample content (work packages, an active sprint, a comment); OpenProject's own tasks, the sample content, a clean-up after a stopped test run, the default accounts and the dashboard's connection through `cmd-tools-openproject-cli.sh`; clones and removal, always in containers. Invoke for "build an OpenProject site", "add the sample project", "add the default accounts to this site", "connect the dashboard to this OpenProject", "tidy the site after a test run".
 model: fable
 tools:
   - Bash
@@ -34,8 +34,9 @@ bash cmd-openproject-project.sh myold --install --openproject-version 17.9.8
 
 The site is the publisher's image (`openproject/openproject`) on the project's own PostgreSQL 17. On DDEV the image
 is a service of a generic project and takes the project's address, `https://mysite.ddev.site`; the project's web
-container keeps the mail catcher at `https://mysite.ddev.site:8026`. On Docker Compose (`--runtime docker`) the image
-is the web container's, at `http://127.0.0.1:<port>`; the build says the address. Other runtimes are not proven for
+container keeps the mail catcher at `https://mysite.ddev.site:8026`. On Docker Compose, Podman and Kubernetes
+(`--runtime docker`, `podman` or `kubernetes`) the image is the web container's, at the address the runtime gives it
+(`http://127.0.0.1:<port>`, or a Kubernetes node's); the build says the address. Lando and Docksal are not proven for
 OpenProject yet: the builder says so and stops before it changes anything. The first build takes some minutes: the
 image is about 2 GB, and the first start loads and seeds the database. Check the free memory and disk first
 (`free -g`, `df -h /`) and build one site at a time: a site takes about 2 GB of memory.
@@ -46,7 +47,7 @@ image is about 2 GB, and the first start loads and seeds the database. Check the
 | `--add-users` | With `--install`: the default accounts, each a member of the project Webship site in its role |
 | `--sample-content` | With `--install --add-users`: three work packages of Webship site (one opened by the stranger), its active sprint "Sprint 1" and a comment |
 | `--openproject-version <x.y.z>` | The release of the image: 17.9.8 by default |
-| `--runtime ddev` or `--runtime docker` | The container runtime: DDEV (the default) or Docker Compose |
+| `--runtime <runtime>` | The container runtime: `ddev` (the default), `docker` (Docker Compose), `podman` or `kubernetes` |
 | `--launch` | Open the site when it is ready |
 
 A project of the same name is deleted first, with its database and its files. The site's own values (its secret key,

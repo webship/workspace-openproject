@@ -8,9 +8,10 @@
 # it after the core's own functions. Everything runs in containers, never on the host:
 #   - DDEV (the default): OpenProject's all-in-one image is a service of a generic project, on the project's own
 #     PostgreSQL (the db service), at https://<name>.ddev.site; the project's web container keeps the mail catcher.
-#   - Docker Compose (--runtime docker): the publisher's image is the web container's (rt_stack image), on the
-#     project's PostgreSQL, its server and background worker started by the stack (rt_serve), at http://127.0.0.1:<port>.
-# Podman, Kubernetes, Lando and Docksal are not proven yet: asked for one, the builder says so and changes nothing.
+#   - Docker Compose, Podman and Kubernetes (--runtime docker, podman or kubernetes): the publisher's image is the web
+#     container's (rt_stack image), on the project's PostgreSQL, its server and background worker started by the stack
+#     (rt_serve), at the address the runtime gives it (http://127.0.0.1:<port>, or a Kubernetes node's).
+# Lando and Docksal are not proven yet: asked for one, the builder says so and changes nothing.
 #
 # The container tool has no project type for OpenProject, so a site of this plugin is recognised by a file on DDEV
 # (.ddev/config.openproject.yaml, written by the builder) and by the plugin's claim on the other runtimes (rt_claim).
@@ -157,7 +158,10 @@ YAMLEOF
     return 0 ;
   fi
 
-  # Another runtime: the publisher's image is the web container's, and the stack starts it (openproject-serve.sh).
+  # Another runtime: the publisher's image is the web container's, and the stack starts it (openproject-serve.sh). The
+  # attachments go into the project folder (openproject/files), not into the image's own /var/openproject/assets: a
+  # volume of the container there that a new container does not have (a pod started again on Kubernetes), and that the
+  # row's Backup of the project folder does not take.
   local address port ;
   address="$(cd "${project_path}" && rt_url)" ; port="${address##*:}" ;
   cat >> "${env}" <<ENVEOF
@@ -167,11 +171,13 @@ OPENPROJECT_HTTPS=false
 OPENPROJECT_SMTP__ADDRESS=mail
 OPENPROJECT_RAILS__CACHE__STORE=file_store
 OPENPROJECT_COLLABORATIVE__EDITING__HOCUSPOCUS__URL=
+OPENPROJECT_ATTACHMENTS__STORAGE__PATH=/var/www/html/${OPENPROJECT_FILES}/files
 PORT=8080
 ENVEOF
+  # The image by its registry's full name: Podman does not take a short name it would have to pick a registry for.
   ( cd "${project_path}" \
     && rt_claim openproject \
-    && rt_stack image "openproject/openproject:${version}" \
+    && rt_stack image "docker.io/openproject/openproject:${version}" \
     && rt_web_build openproject <<'DOCKEREOF'
 # The image's own entrypoint starts its all-in-one setup as root; the stack starts OpenProject its own way instead
 # (start.sh, then openproject/openproject-serve.sh, as the host user).
@@ -267,8 +273,8 @@ function openproject_build() {
   local runtime ; runtime="$(cd "${WORKSPACE_ROOT}/${doc_name}" && openproject_runtime)" ;
 
   case "${runtime}" in
-    ddev|docker) ;;
-    *) echo "OpenProject builds on DDEV and on Docker Compose for now (--runtime ddev or docker), not on ${runtime}: that runtime is not proven for it yet. Nothing was changed." ; exit 1 ;;
+    ddev|docker|podman|kubernetes) ;;
+    *) echo "OpenProject builds on DDEV, Docker Compose, Podman and Kubernetes for now (--runtime ddev, docker, podman or kubernetes), not on ${runtime}: that runtime is not proven for it yet. Nothing was changed." ; exit 1 ;;
   esac
   if [ "${runtime}" != 'ddev' ] && ! declare -f rt_stack > /dev/null ; then
     echo "--runtime ${runtime} needs a Webship Workspace with the container runtimes (webship/workspace#694, #841): update the workspace, or build on DDEV." ;

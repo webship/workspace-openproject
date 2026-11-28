@@ -3,7 +3,7 @@
  *
  * What the package carries is placed by the installer from the manifest: the builder and the tool in the sites
  * folders, their functions and argparse under core/scripts/plugins/openproject/ (with the compose file of OpenProject's
- * service, the Rails runner script the builder runs in its container, the start of a site on Docker Compose and the
+ * service, the Rails runner script the builder runs in its container, the start of a site on another runtime and the
  * first feature of a site), and its AI items (ai/ in this package) in the folder of their kind.
  *
  * What register() adds: the work packages of an OpenProject as work items (@webship.co/workspace-tracker): the
@@ -45,7 +45,7 @@ export function assistantContext(): string {
   return [
     'OpenProject (a plugin, @webship.co/workspace-openproject), the open-source project management software: a site is built with',
     '`bash cmd-openproject-project.sh <name> --install --add-users --sample-content` from a sites folder (dev, test, sandboxes, demos):',
-    'the publisher\'s image (17.9.8 by default, `--openproject-version`) on the project\'s own PostgreSQL, on DDEV at https://<name>.ddev.site, or with `--runtime docker` on Docker Compose at http://127.0.0.1:<port>.',
+    'the publisher\'s image (17.9.8 by default, `--openproject-version`) on the project\'s own PostgreSQL, on DDEV at https://<name>.ddev.site, or with `--runtime docker`, `podman` or `kubernetes` at the address the runtime gives it (the build says it).',
     '`--install` makes the workspace account an administrator; `--add-users` adds the default accounts (owner: Project admin, member: Member, reader: Reader of the project Webship site, stranger: no membership), each @example.com;',
     '`--sample-content` adds the work packages of Webship site, its active sprint "Sprint 1" and a comment.',
     '`bash cmd-tools-openproject-cli.sh <name>` says what the site is and lists its accounts; `--run "<task>"` runs one of OpenProject\'s own rake tasks in its container,',
