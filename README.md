@@ -54,19 +54,18 @@ bash cmd-openproject-project.sh mysite --install --add-users --runtime docker
 
 A project of the same name is deleted first, with its database and its files.
 
-- **On DDEV** OpenProject's all-in-one image (its web server, background worker and cache) is a service of a generic
-  project, on the project's PostgreSQL 17, at `https://mysite.ddev.site`. The project's web container keeps the mail
+- **On DDEV** the publisher's image is a service of a generic project, on the project's PostgreSQL 17, at
+  `https://mysite.ddev.site`: its web server and background worker run as your user, started as on the other runtimes
+  (the image's all-in-one start, with Apache and memcached, needs root). The project's web container keeps the mail
   catcher, at `https://mysite.ddev.site:8026`, and OpenProject sends its mail there.
 - **On Docker Compose, Podman and Kubernetes** the publisher's image is the web container's (the workspace's generic
   stack), on the project's PostgreSQL 17, at the address the runtime gives it: `http://127.0.0.1:<port>` on Docker
   Compose and Podman, a node's address and port on Kubernetes; the build says it. The site's server and background
   worker run as your user.
 - Lando and Docksal are not proven for OpenProject yet: asked for one, the builder says so and changes nothing.
-- **Its attachments:** on DDEV in the project's volume `ddev-mysite-openproject-assets`, which the row's Backup does
-  not hold; on Docker Compose, Podman and Kubernetes in the project folder (`openproject/files`), which the project's
-  archive holds, and which a new web container (a pod started again on Kubernetes) has too. A Docker Compose site built
-  with the plugin's 1.0.2 keeps them in its web container's own volume until it is upgraded: see
-  [Upgrading a Docker Compose site from 1.0.2](#upgrading-a-docker-compose-site-from-102).
+- **Its attachments** are in the project folder (`openproject/files`) on every runtime, which the row's Backup holds;
+  a new container (a pod started again on Kubernetes) has them too. A site built with the plugin's 1.0.2 keeps them in
+  a volume until it is upgraded: see [Upgrading a site from 1.0.2](#upgrading-a-site-from-102).
 
 The site's own values, its secret key and the password of its first administrator (`admin`), are made for it and kept
 in `openproject/env` of the project, which only you can read. The builder never prints them.
@@ -91,15 +90,28 @@ assigned to the member, in the active sprint "Sprint 1", with a comment), "The u
 (a Bug by the member) and "A work package opened by someone outside the project" (opened by the stranger: the tracker
 treats it as from outside the project).
 
-### Upgrading a Docker Compose site from 1.0.2
+### Upgrading a site from 1.0.2
 
-A site built on Docker Compose with the plugin's 1.0.2 keeps its attachments in its web container's own volume
-(`/var/openproject/assets/files`), which the row's Backup does not hold and a new web container does not have. A site
-built again with this release has them in the project folder. To keep a site as it is, move them there once, from the
-site's folder:
+A site built with the plugin's 1.0.2 keeps its attachments in a volume, which the row's Backup does not hold: on DDEV
+the project's `ddev-mysite-openproject-assets`, on Docker Compose its web container's own (`/var/openproject/assets/files`),
+which a new web container does not have. A site built again with this release has them in the project folder. To keep
+a site as it is, once the plugin is updated, move them there, from the site's folder (`~/workspace/dev/mysite`, or
+`test`, `sandboxes`, `demos`).
+
+On DDEV, where OpenProject's service then runs as your user:
 
 ```bash
-cd ~/workspace/dev/mysite          # the site's folder (dev, test, sandboxes or demos)
+cd ~/workspace/dev/mysite
+mkdir -p openproject/files
+docker cp ddev-mysite-openproject:/var/openproject/assets/files/. openproject/files/
+cp ~/workspace/core/scripts/plugins/openproject/docker-compose.openproject.yaml .ddev/
+ddev restart
+```
+
+On Docker Compose:
+
+```bash
+cd ~/workspace/dev/mysite
 mkdir -p openproject/files
 docker compose cp web:/var/openproject/assets/files/. openproject/files/
 echo 'OPENPROJECT_ATTACHMENTS__STORAGE__PATH=/var/www/html/openproject/files' >> openproject/env
@@ -107,7 +119,7 @@ docker compose restart web
 ```
 
 OpenProject then reads and writes its attachments in `openproject/files`, and the row's Backup holds them. The copy
-left in the container's volume is not used any more.
+left in the volume is not used any more (on DDEV the volume goes with the project).
 
 ## The tool
 
