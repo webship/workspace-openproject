@@ -59,24 +59,45 @@ test('every shell script parses, and the site\'s script is Ruby the site\'s own 
   assert.doesNotMatch(rb, /^\s*warn /m, 'Kernel#warn says nothing in a production runner: failures go to $stderr');
 });
 
-test('the runtimes: DDEV and Docker Compose; another is refused before anything is changed', () => {
-  assert.match(read('scripts/args/arg-openproject.sh'), /choices=\['ddev', 'docker'\]/);
+test('the runtimes: DDEV, Docker Compose, Podman and Kubernetes; another is refused before anything is changed', () => {
+  assert.match(read('scripts/args/arg-openproject.sh'), /choices=\['ddev', 'docker', 'podman', 'kubernetes'\]/);
   const build = FUN.slice(FUN.indexOf('function openproject_build()'));
   const guard = build.indexOf('case "${runtime}" in');
   assert.ok(guard > 0 && guard < build.indexOf('drop_database') && guard < build.indexOf('ddev config'), 'the runtime is asked first');
-  assert.match(build, /OpenProject builds on DDEV and on Docker Compose for now \(--runtime ddev or docker\), not on \$\{runtime\}: that runtime is not proven for it yet\. Nothing was changed\./);
+  assert.match(build, /    ddev\|docker\|podman\|kubernetes\) ;;\n/, 'the four runtimes');
+  assert.match(build, /OpenProject builds on DDEV, Docker Compose, Podman and Kubernetes for now \(--runtime ddev, docker, podman or kubernetes\), not on \$\{runtime\}: that runtime is not proven for it yet\. Nothing was changed\./);
+  for (const f of ['README.md', 'src/index.ts', 'commands/cmd-openproject-project.sh', 'scripts/functions/fun-openproject.sh', 'scripts/args/arg-openproject.sh', ...manifest.ai.agents, ...manifest.ai.prompts]) {
+    assert.doesNotMatch(read(f), /Podman, Kubernetes, Lando and Docksal are not proven|Other runtimes are not proven|not proven on the other runtimes/, `${f}: no runtime said unproven that is proven`);
+  }
+  const features = read('features/openproject-runtimes.feature');
+  for (const [rt, menu] of [['docker', 'DOCKER'], ['podman', 'PODMAN'], ['kubernetes', 'K8S']]) {
+    assert.match(features, new RegExp(`@needs-runtime-${rt} @needs-platform-openproject\\n  Scenario: A site built on [A-Za-z ]+ runs at [a-z ]+, with the ${menu} menu`), `the dashboard's row of a ${rt} site`);
+    assert.match(features, new RegExp(`When I open "/login" on the "${rt}" site`), `the login screen of a ${rt} site`);
+  }
   assert.match(build, /ddev config --project-type=generic --project-name=\$\{PROJECT_NAME\} --database=postgres:17 \\\n\s+--nodejs-version=\$\(ddev_nodejs_version\)/, 'on DDEV: a generic project on PostgreSQL 17, with the Node.js of the workspace');
   assert.match(build, /ddev config --project-type=generic --webserver-type=generic --project-name=\$\{PROJECT_NAME\} --database=postgres:17 --auto/, 'elsewhere: the generic stack on PostgreSQL 17');
   const write = FUN.slice(FUN.indexOf('function openproject_write_config()'), FUN.indexOf('function openproject_exec()'));
   assert.match(write, /rt_claim openproject/, 'the plugin claims the project on another runtime');
-  assert.match(write, /rt_stack image "openproject\/openproject:\$\{version\}"/, 'the publisher\'s image, pinned, is the web container\'s');
+  assert.match(write, /rt_stack image "docker\.io\/openproject\/openproject:\$\{version\}"/, 'the publisher\'s image, pinned, is the web container\'s, by its full name, which Podman needs');
   assert.match(write, /ENTRYPOINT \[\]/, 'the image\'s own all-in-one start is not used there');
   assert.match(write, /chown -R www-data:www-data \/app\/tmp \/app\/log \/app\/files \/var\/openproject/, 'what it writes belongs to the host user, whatever its UID');
   assert.match(write, /rt_serve 8080 "bash \$\{OPENPROJECT_FILES\}\/openproject-serve\.sh"/);
   assert.match(write, /umask 077/, 'the site\'s own values are readable by their owner only');
+  assert.match(write, /\nOPENPROJECT_ATTACHMENTS__STORAGE__PATH=\/var\/www\/html\/\$\{OPENPROJECT_FILES\}\/files\n/, 'the attachments in the project folder: not in the image\'s volume, which a new container or pod does not have and a Backup does not take');
+  assert.match(FUN, /^readonly OPENPROJECT_FILES='openproject';$/m);
+  const readme = read('README.md');
+  const upgrade = readme.slice(readme.indexOf('On Docker Compose:\n'), readme.indexOf('## The tool'));
+  assert.ok(upgrade.indexOf('mkdir -p openproject/files') < upgrade.indexOf('docker compose cp web:/var/openproject/assets/files/. openproject/files/')
+    && upgrade.indexOf('docker compose cp') < upgrade.indexOf("echo 'OPENPROJECT_ATTACHMENTS__STORAGE__PATH=/var/www/html/openproject/files' >> openproject/env")
+    && upgrade.indexOf('>> openproject/env') < upgrade.indexOf('docker compose restart web'), 'the upgrade of a 1.0.2 Docker Compose site: the folder, the copy, the env line the builder writes now, the restart');
+  assert.match(readme, /\*\*Its attachments\*\* are in the project folder \(`openproject\/files`\) on every runtime, which the row's Backup holds/, 'the attachments in the project folder on every runtime');
+  const ddevUpgrade = readme.slice(readme.indexOf('On DDEV, where OpenProject\'s service then runs as your user:'), readme.indexOf('On Docker Compose:\n'));
+  const steps = ['mkdir -p openproject/files', 'docker cp ddev-mysite-openproject:/var/openproject/assets/files/. openproject/files/', 'cp ~/workspace/core/scripts/plugins/openproject/docker-compose.openproject.yaml .ddev/', 'ddev restart'];
+  for (let i = 1; i < steps.length; i++) assert.ok(ddevUpgrade.indexOf(steps[i - 1]) >= 0 && ddevUpgrade.indexOf(steps[i - 1]) < ddevUpgrade.indexOf(steps[i]), `the upgrade of a 1.0.2 DDEV site, in order: ${steps[i]}`);
   const serve = read('scripts/openproject-serve.sh');
   assert.ok(serve.indexOf('./docker/prod/migrate') < serve.indexOf('./docker/prod/seeder --skip-migrate') && serve.indexOf('seeder') < serve.indexOf('exec ./docker/prod/web'), 'migrate, seed, then serve');
   assert.match(serve, /bundle exec good_job start &/, 'the background worker beside the web server');
+  assert.ok(serve.indexOf('mkdir -p "${OPENPROJECT_ATTACHMENTS__STORAGE__PATH:-/var/openproject/assets/files}" || exit 1 ;') > serve.indexOf('. "$(dirname "$0")/env"') && serve.indexOf('mkdir -p') < serve.indexOf('./docker/prod/migrate'), 'the attachments\' folder made before OpenProject starts, wherever the site\'s env puts it');
 });
 
 test('OpenProject\'s service on DDEV: the publisher\'s image takes the project\'s address, on the project\'s database; the web container keeps the mail catcher', () => {
@@ -95,13 +116,20 @@ test('OpenProject\'s service on DDEV: the publisher\'s image takes the project\'
     assert.match(compose, new RegExp(`\\n  ${volume}:\\n    name: ddev-\\$\\{DDEV_SITENAME\\}-${volume.replace('_', '-')}\\n`), `${volume} is named after the project`);
   }
   assert.doesNotMatch(compose, /SECRET_KEY_BASE:|PASSWORD:/, 'no secret in the compose file');
+  // As the project's user, with the plugin's start: what it writes in the project folder is the project's own.
+  assert.match(compose, /\n    user: "\$\{DDEV_UID\}:\$\{DDEV_GID\}"\n    command: \["bash", "\/opt\/webship\/openproject-serve\.sh"\]\n/, 'the project\'s user, the plugin\'s start (the all-in-one one needs root)');
+  assert.match(compose, /\n    depends_on:\n      db:\n        condition: service_healthy\n/, 'it waits for the project\'s database to be healthy: the plugin\'s start migrates at once');
+  assert.match(compose, /\n    tmpfs:\n      - \/app\/tmp:mode=1777\n      - \/app\/log:mode=1777\n/, 'its caches and log where any user may write');
+  assert.ok(compose.includes('      - ${DDEV_APPROOT}/openproject/files:/var/openproject/assets/files\n'), 'its attachments in the project folder');
+  for (const line of ['OPENPROJECT_RAILS__CACHE__STORE: file_store', 'PORT: "80"', 'HOME: /tmp']) assert.ok(compose.includes(`      ${line}\n`), line);
+  assert.match(FUN.slice(FUN.indexOf('function openproject_write_config()')), /cp "\$\{from\}\/docker-compose\.openproject\.yaml" "\$\{project_path\}\/\.ddev\/docker-compose\.openproject\.yaml" \|\| return 1 ;\n(\s+#.*\n)+\s+mkdir -p "\$\{project_path\}\/\$\{OPENPROJECT_FILES\}\/files" \|\| return 1 ;/, 'the folder made by the project\'s user before the service starts');
 });
 
 test('the functions carry the names the core\'s tools look for, and run OpenProject\'s tools in its container as its user', () => {
   for (const fn of ['set_openproject_users', 'add_openproject_users', 'cancel_openproject_users', 'testing_configure_openproject', 'openproject_build', 'openproject_cli_tool', 'openproject_connect']) {
     assert.match(FUN, new RegExp(`^function ${fn}\\(\\) \\{`, 'm'), `${fn} is defined`);
   }
-  assert.match(FUN, /ddev exec -s openproject "su app -s \/bin\/bash -c/, 'on DDEV in OpenProject\'s container, as its own user');
+  assert.match(FUN, /ddev exec -s openproject "if \[ \\"\\\$\(id -u\)\\" = 0 \] ; then exec su app -s \/bin\/bash -c \$\{inner\} ; else exec bash -c \$\{inner\} ; fi" ;/, 'on DDEV in OpenProject\'s container, as the user it runs as: the project\'s, or app on a site built before');
   assert.match(FUN, /OPENPROJECT_LOG__LEVEL=warn bundle exec rails runner \$\(openproject_scripts_dir\)\/openproject-site\.rb/, 'the site\'s own Rails runner');
   assert.match(FUN, /openproject_exec "bundle exec rake \$\{RUN\}"/, 'the tool runs OpenProject\'s own tasks');
   assert.match(FUN, /users=\(owner member reader stranger\);/);
@@ -127,7 +155,7 @@ test('the assistant is told how to build, test and connect a site', () => {
   const told = assistantContext();
   for (const c of COMMANDS) assert.ok(told.includes(c), `the assistant is told about ${c}`);
   for (const a of AGENTS) assert.ok(told.includes(a), `the assistant is told about ${a}`);
-  assert.match(told, /--runtime docker/);
+  assert.match(told, /with `--runtime docker`, `podman` or `kubernetes` at the address the runtime gives it/);
   assert.match(told, /--connect <login>/);
 });
 

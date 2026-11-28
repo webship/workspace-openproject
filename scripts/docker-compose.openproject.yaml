@@ -1,6 +1,6 @@
-# OpenProject of this project: the publisher's all-in-one image (its web server, background worker and cache) on the
-# project's own PostgreSQL (the container tool's db service), served at the project's address; the project's web
-# container keeps the mail catcher, which takes the site's mail. Written by the OpenProject builder of the workspace
+# OpenProject of this project: the publisher's image, its web server and background worker, on the project's own
+# PostgreSQL (the container tool's db service), served at the project's address; the project's web container keeps the
+# mail catcher, which takes the site's mail. Written by the OpenProject builder of the workspace
 # (the plugin's docker-compose.openproject.yaml); build again rather than editing by hand. The site's own values (its
 # secret key, the first administrator's password, its address) are in openproject/env, which only you can read.
 services:
@@ -11,18 +11,34 @@ services:
   openproject:
     image: "openproject/openproject:${OPENPROJECT_VERSION:-17.9.8}"
     container_name: ddev-${DDEV_SITENAME}-openproject
+    # As the project's user (its UID and GID), so what OpenProject keeps beside its database (its attachments, in
+    # ../openproject/files) is the project's own: the row's Backup archives it, and removing the project removes it.
+    # The image's entrypoint does its root-only steps (the owner of its folders) only as root, and then runs, as on the
+    # other runtimes, the plugin's start: the migrations and the seeds, the background worker, the web server. The
+    # image's all-in-one start (Apache, memcached, supervisord) needs root.
+    user: "${DDEV_UID}:${DDEV_GID}"
+    command: ["bash", "/opt/webship/openproject-serve.sh"]
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     restart: "no"
     expose:
       - "80"
+    # The plugin's start migrates the database at once, and on a new project the database is still being made when
+    # this container starts: OpenProject waits for it to be healthy.
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     env_file:
       - ${DDEV_APPROOT}/openproject/env
+    # What OpenProject writes in the image's own folders (its caches and process files, its log), for any user.
+    tmpfs:
+      - /app/tmp:mode=1777
+      - /app/log:mode=1777
     volumes:
       - openproject_assets:/var/openproject/assets
+      # Its attachments, in the project folder.
+      - ${DDEV_APPROOT}/openproject/files:/var/openproject/assets/files
       # The image declares this volume too; the site's database is the project's (DATABASE_URL), so it holds nothing
       # of the site, but unnamed it would be left on the machine each time the container is made.
       - openproject_pgdata:/var/openproject/pgdata
@@ -36,9 +52,14 @@ services:
       OPENPROJECT_HOST__NAME: ${DDEV_SITENAME}.ddev.site
       OPENPROJECT_HTTPS: "true"
       OPENPROJECT_SMTP__ADDRESS: web
+      # Its cache in files (/app/tmp), with no memcached; its web server on the port DDEV's router asks; a home the
+      # project's user may write.
+      OPENPROJECT_RAILS__CACHE__STORE: file_store
+      PORT: "80"
+      HOME: /tmp
       USE_JEMALLOC: "false"
 # Every volume the image declares, named after the project, so removing the project removes them with its database,
-# and a new build starts empty.
+# and a new build starts empty; the attachments in the first are the project folder's.
 volumes:
   openproject_assets:
     name: ddev-${DDEV_SITENAME}-openproject-assets
